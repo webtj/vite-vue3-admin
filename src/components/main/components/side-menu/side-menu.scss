@@ -1,0 +1,39 @@
+.layout-sider {
+  position: relative;
+  overflow-y: scroll;
+  height: 100%;
+  // margin-right: -18px;
+  background-color: $meun-aside-bg-color;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .side-menu-wrapper {
+    user-select: none;
+
+    .el-menu {
+      border: 0;
+      letter-spacing: 1.5px;
+      --el-menu-item-font-size: #{$menu-aside-font-size};
+      --el-menu-text-color: #{$meun-aside-text-color};
+      --el-menu-hover-bg-color:#{$meun-aside-hover-bg-color} !important;
+      --el-menu-hover-text-color: #{$meun-aside-text-active-color};
+      --el-menu-bg-color:#{$meun-aside-bg-color};
+
+      .el-menu-item.is-active {
+        --el-menu-active-color: #{$meun-aside-text-color};
+        background-color: #{$meun-aside-text-active-color};
+        transition: all 0.1s ease-in-out;
+      }
+
+      [class^=el-icon]:not(.el-sub-menu__icon-arrow) {
+        font-size: #{$menu-aside-icon-font-size};
+      }
+    }
+
+    .el-menu-sider:not(.el-menu--collapse) {
+      width: $menu-aside-width;
+    }
+  }
+}

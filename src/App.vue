@@ -1,0 +1,31 @@
+<template>
+  <router-view />
+</template>
+
+<script>
+export default {};
+</script>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#app,
+.wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "PingFang SC", "Helvetica Neue", Helvetica, "microsoft yahei",
+    arial, STHeiTi, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+</style>
