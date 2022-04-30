@@ -69,9 +69,19 @@ export default [
         meta: {
           title: '表格导出Excel',
           notCache: false,
-          icon: 'Pointer'
+          icon: 'Grid'
         },
         component: () => import('_v/components/tableExport.vue')
+      },
+      {
+        path: 'echarts',
+        name: 'echarts',
+        meta: {
+          title: 'echarts图表',
+          notCache: false,
+          icon: 'PieChart'
+        },
+        component: () => import('_v/components/echarts.vue')
       }
     ]
   },

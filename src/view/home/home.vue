@@ -4,10 +4,9 @@
   </div>
 </template>
 
-<script>
-export default {
+<script setup>
+import CountTo from '_c/count-to'
 
-}
 </script>
 
 <style lang="scss">
