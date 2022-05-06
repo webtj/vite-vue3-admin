@@ -110,6 +110,7 @@ watch(router.currentRoute, newRoute => {
   })
   //同步更新面包屑
   store.commit('app/setBreadCrumb', newRoute)
+  store.commit('app/setActiveRoutePath', newRoute.path)
 })
 
 onMounted(() => {
@@ -129,6 +130,8 @@ onMounted(() => {
   }
   //设置初始语言
   store.commit('app/setLocal', getNavigatorLang())
+  //初始化菜单，使刚进入页面左侧菜单自动打开
+  store.commit('app/setActiveRoutePath', router.currentRoute.value.path)
 })
 </script>
 

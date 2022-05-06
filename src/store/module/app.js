@@ -33,6 +33,7 @@ export default {
     tagNavList: [], //标签缓存列表
     homeRoute: {},
     local: localRead('local'),
+    activeRoutePath: '/home', //当前激活的菜单
   }),
   mutations: {
     setBreadCrumb(state, route) {
@@ -40,6 +41,9 @@ export default {
     },
     setHomeRoute(state, routes) {
       state.homeRoute = getHomeRoute(routes, homeName)
+    },
+    setActiveRoutePath(state, path) {
+      state.activeRoutePath = path
     },
     setTagNavList(state, list) {
       let tagList = []
