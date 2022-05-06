@@ -1,12 +1,27 @@
+/**自定义主题
+$--colors: ("primary": ("base": green),
+  "success": ("base": #21ba45),
+  "warning": ("base": #f2711c),
+  "danger": ("base": #db2828),
+  "error": ("base": #db2828),
+  "info": ("base": #42b8dd),
+);
+
+@forward "element-plus/theme-chalk/src/common/var.scss"with ($colors: $--colors,
+  $button-padding-horizontal: ("default": 50px));
+**/
+
+@import './reset.scss';
+@import './common.scss';
+$base-font-size-default:14px;
 /**菜单栏边框宽度**/
 $menu-aside-width:256px;
-$menu-aside-collapsed-width:64px;
 $menu-aside-font-size:14px;
 $menu-aside-icon-font-size:18px;
 $meun-aside-text-color:#fff;
 $meun-aside-text-active-color:#409EFF;
 $meun-aside-hover-bg-color:rgb(50, 65, 87);
-$meun-aside-bg-color:#000c17;
+$meun-aside-bg-color:rgb(41, 50, 71);
 
 /**header头部份**/
 $header-height:65px;

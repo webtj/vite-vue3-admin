@@ -21,14 +21,31 @@
       --el-menu-hover-text-color: #{$meun-aside-text-active-color};
       --el-menu-bg-color:#{$meun-aside-bg-color};
 
+      .el-menu-item,
+      .el-sub-menu {
+        margin: 0 5px;
+        padding-right: 0;
+        border-radius: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inherit;
+        box-sizing: border-box;
+      }
+
       .el-menu-item.is-active {
         --el-menu-active-color: #{$meun-aside-text-color};
-        background-color: #{$meun-aside-text-active-color};
+        background-color: $meun-aside-text-active-color;
         transition: all 0.1s ease-in-out;
       }
 
+      .el-menu-item:hover,
+      .el-sub-menu:hover {
+        transition: background 0.1s ease-in-out;
+      }
+
       [class^=el-icon]:not(.el-sub-menu__icon-arrow) {
-        font-size: #{$menu-aside-icon-font-size};
+        font-size: $menu-aside-icon-font-size;
       }
     }
 
