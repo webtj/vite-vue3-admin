@@ -159,9 +159,9 @@ const changedata = () => {
 
   $data.commonuseData.series = [
     {
-      name: '运营商/网络服务',
+      name: 'good good',
       type: 'line',
-      stack: '总量',
+      stack: 'papapa',
       areaStyle: {
         normal: {
           color: '#2d8cf0'
