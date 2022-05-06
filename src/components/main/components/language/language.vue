@@ -1,13 +1,13 @@
 <template>
   <div class="switchLang">
     <el-dropdown @command="selectLang">
-      <el-button type="text">{{title}}
+      <el-button type="text">{{ title }}
         <e-icon type="ArrowDown"></e-icon>
       </el-button>
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item :command="key" v-for="(value, key) in localList" :key="`lang-${key}`">
-            {{value}}</el-dropdown-item>
+            {{ value }}</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -42,5 +42,8 @@ const selectLang = name => {
   store.commit('app/setLocal', name)
 }
 </script>
-<style lang="sass">
+<style lang="scss">
+.switchLang {
+  margin-left: 10px;
+}
 </style>

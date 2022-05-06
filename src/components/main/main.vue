@@ -1,6 +1,6 @@
 <template>
   <el-container class="main">
-    <el-aside class="left-sider" :style="{overflow:'hidden'}">
+    <el-aside class="left-sider" :style="{ overflow: 'hidden' }">
       <!--菜单栏-->
       <side-menu ref="sideMenu" :collapsed="params.collapsed" model="vertical" :menuList="menuList">
         <div class="logo-con">
@@ -14,7 +14,8 @@
       <el-header class="header-con">
         <header-bar :collapsed="params.collapsed" @on-coll-change="handleCollapsedChange">
           <fullscreen v-model="params.isFullScreen"></fullscreen>
-          <language style="margin:0 10px"></language>
+          <refresh-main></refresh-main>
+          <language></language>
         </header-bar>
       </el-header>
       <el-main class="main-content-con">
@@ -26,7 +27,7 @@
             <router-view v-slot="{ Component }">
               <Transition name="move" mode="out-in">
                 <keep-alive :include="cacheList">
-                  <component :is="Component" />
+                  <component :is="Component" :key="renderKey" />
                 </keep-alive>
               </Transition>
             </router-view>
@@ -38,7 +39,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, reactive, watch } from 'vue'
+import { computed, onMounted, reactive, watch, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
@@ -55,6 +56,7 @@ import TagsNav from './components/tags-nav'
 // import ABackTop from './components/a-back-top'
 import Fullscreen from './components/fullscreen'
 import Language from './components/language'
+import RefreshMain from './components/refresh-main'
 const store = useStore()
 const router = useRouter()
 const params = reactive({
@@ -62,6 +64,7 @@ const params = reactive({
   isFullScreen: true
 })
 
+let renderKey = computed(() => store.state.app['refreshKey'])
 
 const turnToPage = route => {
   let { name, params, query } = {}

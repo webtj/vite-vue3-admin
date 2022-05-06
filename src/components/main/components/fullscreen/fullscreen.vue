@@ -60,6 +60,8 @@ onMounted(() => {
 
 <style lang="scss">
 .full-screen-btn-con {
+  margin-left: 10px;
+
   i {
     cursor: pointer;
     vertical-align: middle;

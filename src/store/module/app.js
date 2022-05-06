@@ -34,6 +34,7 @@ export default {
     homeRoute: {},
     local: localRead('local'),
     activeRoutePath: '/home', //当前激活的菜单
+    refreshKey: 0, //刷新键
   }),
   mutations: {
     setBreadCrumb(state, route) {
@@ -44,6 +45,9 @@ export default {
     },
     setActiveRoutePath(state, path) {
       state.activeRoutePath = path
+    },
+    setRefreshKey(state) {
+      state.refreshKey = new Date().getTime()
     },
     setTagNavList(state, list) {
       let tagList = []
