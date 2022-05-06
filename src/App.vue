@@ -5,27 +5,18 @@
 <script>
 export default {};
 </script>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html,
-body,
-#app,
-.wrapper {
-  width: 100%;
+<style lang="scss">
+#app {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: $base-font-size-default;
+  color: #2c3e50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   height: 100%;
   overflow: hidden;
 }
 
-body {
-  font-family: "PingFang SC", "Helvetica Neue", Helvetica, "microsoft yahei",
-    arial, STHeiTi, sans-serif;
-}
-
-a {
-  text-decoration: none;
+#nprogress .bar {
+  //自定义loading-bar的颜色
 }
 </style>
