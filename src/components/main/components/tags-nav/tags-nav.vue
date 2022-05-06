@@ -2,11 +2,11 @@
   <div class="tags-nav" ref="tagsNav">
     <div class="close-con">
       <el-dropdown @command="handleTagsOption">
-        <v-icon type="CircleClose" class="closeTagHandle"></v-icon>
+        <e-icon type="CircleClose" class="closeTagHandle"></e-icon>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item command="close-others">关闭其他</el-dropdown-item>
-            <el-dropdown-item command="close-all">关闭所有</el-dropdown-item>
+            <el-dropdown-item command="close-others">{{t('router.closeOther')}}</el-dropdown-item>
+            <el-dropdown-item command="close-all">{{t('router.closeAll')}}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -16,15 +16,15 @@
     </ul>
     <div class="btn-con left-btn">
       <el-button type="text" @click="handleScroll(240)">
-        <v-icon type="ArrowLeft" size="18"></v-icon>
+        <e-icon type="ArrowLeft" size="18"></e-icon>
       </el-button>
     </div>
     <div class="btn-con right-btn">
       <el-button type="text" @click="handleScroll(-240)">
-        <v-icon type="ArrowRight" size="18"></v-icon>
+        <e-icon type="ArrowRight" size="18"></e-icon>
       </el-button>
     </div>
-    <div class="scroll-outer" ref="scrollOuter" @DOMMouseScroll="handlescroll" @mousewheel="handlescroll">
+    <div class="scroll-outer" ref="scrollOuter">
       <div ref="scrollBody" class="scroll-body" :style="{left: tagBodyLeft + 'px'}">
         <TransitionGroup name="tag-list">
           <el-tag v-for="(item, index) in list" ref="tagsPageOpened" :key="`tag-nav-${index}`" class="tag-nav"
@@ -43,10 +43,12 @@
 <script setup>
 import { computed, getCurrentInstance, nextTick, onMounted, reactive, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { showTitle, routeEqual } from '@/libs/utils'
 import beforeClose from '@/router/before-close'
 import config from '@/config'
 const router = useRouter()
+const { t } = useI18n()
 const emit = defineEmits(['input', 'on-close'])
 const props = defineProps({
   value: Object,
@@ -77,8 +79,8 @@ let contextMenuLeft = ref(0)
 let contextMenuTop = ref(0)
 let visible = ref(false)
 let menuList = reactive({
-  others: '关闭其他',
-  all: '关闭所有'
+  others: t('router.closeOther'),
+  all: t('router.closeAll'),
 })
 
 //vue当前实例
@@ -104,9 +106,7 @@ const handleTagsOption = type => {
 const isCloseable = name => name != config.homeName
 
 //展示标题
-const showTitleInside = item => {
-  return showTitle(item)
-}
+const showTitleInside = item => showTitle(item)
 
 //tag标签上右击，可关闭其他 和关闭所有
 const contextMenu = (item, e) => {
@@ -117,7 +117,7 @@ const contextMenu = (item, e) => {
   contextMenuLeft.value = e.clientX - offsetLeft + 10
   contextMenuTop.value = e.clientY - 64
 }
-//关闭右击出现的惨淡
+//关闭右击出现的菜单
 const closeContextMenu = () => visible.value = false
 watch(visible, value => {
   if (value) {
@@ -146,16 +146,6 @@ const closeTag = route => {
 //判断是否重复点击路由
 const isCurrentTag = item => {
   return routeEqual(currentRouteObj.value, item)
-}
-
-//tag过多时，需要左右滚动
-const handlescroll = e => {
-  var type = e.type
-  let delta = 0
-  if (type === 'DOMMouseScroll' || type === 'mousewheel') {
-    delta = (e.wheelDelta) ? e.wheelDelta : -(e.detail || 0) * 40
-  }
-  this.handleScroll(delta)
 }
 
 //执行左右滚动操作

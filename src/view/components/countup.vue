@@ -4,8 +4,10 @@
       <el-col :span="6">
         <el-card>
           <template #header>
-            <v-icon type="TrendCharts"></v-icon>
-            基础用法
+            <span>
+              <e-icon type="TrendCharts"></e-icon>
+              基础用法
+            </span>
           </template>
           <el-row type="flex" justify="center" align="middle" class="countto-page-el-row">
             <div class="count-to-con">
@@ -17,7 +19,7 @@
       <el-col :span="6" class="padding-left-10">
         <el-card>
           <template #header>
-            <v-icon type="TrendCharts"></v-icon>
+            <e-icon type="TrendCharts"></e-icon>
             添加左右文字
           </template>
           <el-row type="flex" justify="center" align="middle" class="countto-page-el-row">
@@ -37,7 +39,7 @@
       <el-col :span="6" class="padding-left-10">
         <el-card>
           <template #header>
-            <v-icon type="TrendCharts"></v-icon>
+            <e-icon type="TrendCharts"></e-icon>
             男人最爱的<span style="color:#67C23A;font-weight:bold">绿色</span>
           </template>
           <el-row type="flex" justify="center" align="middle" class="countto-page-el-row">
@@ -57,7 +59,7 @@
       <el-col :span="6" class="padding-left-10">
         <el-card>
           <template #header>
-            <v-icon type="TrendCharts"></v-icon>
+            <e-icon type="TrendCharts"></e-icon>
             设置数据格式
           </template>
           <el-row type="flex" justify="center" align="middle" class="countto-page-el-row">
@@ -79,7 +81,7 @@
       <el-col :span="6" class="padding-left-10">
         <el-card>
           <template #header>
-            <v-icon type="TrendCharts"></v-icon>
+            <e-icon type="TrendCharts"></e-icon>
             可异步更新数据
           </template>
           <el-row type="flex" justify="center" align="middle" class="countto-page-el-row">
@@ -99,7 +101,7 @@
       <el-col :span="6">
         <el-card>
           <template #header>
-            <v-icon type="TrendCharts"></v-icon>
+            <e-icon type="TrendCharts"></e-icon>
             转换单位简化数据
           </template>
           <el-row type="flex" justify="center" align="middle" class="countto-page-el-row">
@@ -116,29 +118,24 @@
       <el-col :span="6" class="padding-left-10">
         <el-card>
           <template #header>
-            <v-icon type="TrendCharts"></v-icon>
+            <e-icon type="TrendCharts"></e-icon>
             自定义单位
           </template>
           <el-row type="flex" justify="center" align="middle" class="countto-page-el-row">
             <div class="count-to-con">
-              <count-to :simplify="true" :unit="unit" :end="123" count-class="count-text" unit-class="unit-class">
-                <template #left>
-                  <span class="slot-text">123&nbsp;<v-icon type="ArrowRight"></v-icon>&nbsp;</span>
-                </template>
-              </count-to>
               <count-to :simplify="true" :unit="unit" :end="2345" count-class="count-text" unit-class="unit-class">
                 <template #left>
-                  <span class="slot-text">2345&nbsp;<v-icon type="ArrowRight"></v-icon>&nbsp;</span>
+                  <span class="slot-text">2345&nbsp;<e-icon type="ArrowRight"></e-icon>&nbsp;</span>
                 </template>
               </count-to>
               <count-to :simplify="true" :unit="unit" :end="34567" count-class="count-text" unit-class="unit-class">
                 <template #left>
-                  <span class="slot-text">34567&nbsp;<v-icon type="ArrowRight"></v-icon>&nbsp;</span>
+                  <span class="slot-text">34567&nbsp;<e-icon type="ArrowRight"></e-icon>&nbsp;</span>
                 </template>
               </count-to>
               <count-to :simplify="true" :unit="unit" :end="456789" count-class="count-text" unit-class="unit-class">
                 <template #left>
-                  <span class="slot-text">456789&nbsp;<v-icon type="ArrowRight"></v-icon>&nbsp;</span>
+                  <span class="slot-text">456789&nbsp;<e-icon type="ArrowRight"></e-icon>&nbsp;</span>
                 </template>
               </count-to>
             </div>
@@ -148,7 +145,7 @@
       <el-col :span="6">
         <el-card>
           <template #header>
-            <v-icon type="TrendCharts"></v-icon>
+            <e-icon type="TrendCharts"></e-icon>
             综合使用
           </template>
           <el-row type="flex" justify="center" align="middle" class="countto-page-el-row">
@@ -156,7 +153,7 @@
               <count-to :delay="500" :simplify="true" :unit="unit2" :end="integratedEndVal" count-class="count-text"
                 unit-class="unit-class">
                 <template #left>
-                  <span class="slot-text">常年ctrl+cv {{ integratedEndVal }}&nbsp;<v-icon type="ArrowRight"></v-icon>
+                  <span class="slot-text">常年ctrl+cv {{ integratedEndVal }}&nbsp;<e-icon type="ArrowRight"></e-icon>
                     &nbsp;</span>
                 </template>
                 <template #right>
@@ -196,8 +193,9 @@ $baseColor: #67c23a;
 }
 .count-to-con {
   display: block;
-  width: 100%;
+  // height: 100%;
   text-align: center;
+  overflow: auto;
 }
 .count-text {
   font-size: 30px;

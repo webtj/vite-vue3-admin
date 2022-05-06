@@ -1,7 +1,7 @@
 <template>
   <div v-if="showFullScreenBtn" class="full-screen-btn-con">
     <el-tooltip effect="dark" :content="modelValue ? '退出全屏' : '全屏'" placement="bottom">
-      <v-icon type='FullScreen' :size="23" @click.native="handleFullscreen"></v-icon>
+      <e-icon type='FullScreen' :size="23" @click.native="handleFullscreen"></e-icon>
     </el-tooltip>
   </div>
 </template>

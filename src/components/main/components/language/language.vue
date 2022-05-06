@@ -2,7 +2,7 @@
   <div class="switchLang">
     <el-dropdown @command="selectLang">
       <el-button type="text">{{title}}
-        <v-icon type="ArrowDown"></v-icon>
+        <e-icon type="ArrowDown"></e-icon>
       </el-button>
       <template #dropdown>
         <el-dropdown-menu>

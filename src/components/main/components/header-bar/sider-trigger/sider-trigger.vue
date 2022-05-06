@@ -1,6 +1,6 @@
 <template>
   <a @click="handleChange" type="text" class="sider-trigger-a">
-    <v-icon :type="icon" :size="size"></v-icon>
+    <e-icon :type="icon" :size="size"></e-icon>
   </a>
 </template>
 <script setup>

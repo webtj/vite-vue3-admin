@@ -13,7 +13,7 @@
           <template #left="left">
             <el-card class="drag-item">
               <span>
-                <v-icon type="Lock" color="red" v-if="left.itemLeft.disabled"></v-icon>
+                <e-icon type="Lock" color="red" v-if="left.itemLeft.disabled"></e-icon>
                 {{ left.itemLeft.name }}
               </span>
             </el-card>
@@ -24,7 +24,7 @@
           <template #right="right">
             <el-card class="drag-item">
               <span>
-                <v-icon type="Lock" color="red" v-if="right.itemRight.disabled"></v-icon>
+                <e-icon type="Lock" color="red" v-if="right.itemRight.disabled"></e-icon>
                 {{ right.itemRight.name }}
               </span>
             </el-card>
