@@ -1,3 +1,29 @@
 export default {
-  home: 'Home'
+  router: {
+    home: 'Home',
+    components: 'Components',
+    customIcon: 'Custom Icon',
+    countup: 'Countup',
+    dragList: 'DragList',
+    exportTable: 'ExportTable',
+    echarts: 'Echarts',
+    excel: 'Excel',
+    exportExcel: 'ExportExcel',
+    uploadExcel: 'Parse Excel',
+    multilevel: 'Multilevel',
+    level_2_1: 'Level_2_1',
+    level_2_2: 'Level_2_2',
+    level_2_3: 'Level_2_3',
+    level_2_2_1: 'Level_2_2_1',
+    level_2_2_2: 'Level_2_2_2',
+    packagejson: 'PackageJson',
+    closeOther: 'Close Others',
+    closeAll: 'Close All',
+    editor: 'Editor',
+    markdownEditor: 'Markdown Editor',
+    pageEditor: 'Page Editor',
+    directive: 'Custom Directive',
+    fraggableDirective: 'Fraggable Directive',
+    lazyloadDirective: 'LazyLoad Directive',
+  }
 }

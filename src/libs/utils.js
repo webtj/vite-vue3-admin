@@ -1,4 +1,8 @@
 import { forEach, objEqual } from '@/libs'
+import i18n from '../locale'
+import config from '@/config'
+const { title } = config
+const { global } = i18n
 
 export const hasChild = (item) => {
   return item.children && item.children.length !== 0
@@ -85,9 +89,9 @@ export const routeEqual = (route1, route2) => {
   return (route1.name === route2.name) && objEqual(params1, params2) && objEqual(query1, query2)
 }
 
-
-export const showTitle = (item, vm) => {
-  return (item.meta && item.meta.title) || item.name
+//路由和面包屑导航国际化
+export const showTitle = item => {
+  return global.t(`router.${item.name}`) || (item.meta && item.meta.title) || item.name
 }
 
 /**
@@ -182,4 +186,13 @@ export const routeHasExist = (tagNavList, routeItem) => {
     if (routeEqual(tagNavList[index], routeItem)) res = true
   })
   return res
+}
+
+/**
+ * @param {路由实例} routeItem 
+ */
+export const setTitle = routeItem => {
+  const pageTitle = showTitle(routeItem)
+  const resTitle = pageTitle ? `${title} ${pageTitle}` : title
+  window.document.title = resTitle
 }
