@@ -1,2 +1,2 @@
-import Icon from './icons.vue'
-export default Icon
+import ParkIcon from './icons.vue'
+export default ParkIcon
