@@ -82,7 +82,7 @@ export default [
           icon: 'PieChart'
         },
         component: () => import('_v/components/echarts.vue')
-      }
+      },
     ]
   },
   {
@@ -112,6 +112,65 @@ export default [
           icon: 'TrendCharts'
         },
         component: () => import('_v/excel/upload-excel.vue')
+      }
+    ]
+  },
+  {
+    path: '/editor',
+    name: 'editor',
+    meta: {
+      icon: 'Edit',
+      title: '文本编辑器'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'markdownEditor',
+        name: 'markdownEditor',
+        meta: {
+          icon: 'EditPen',
+          title: 'markdown编辑器'
+        },
+        component: () => import('_v/components/editor/markdownEditor.vue')
+      },
+      {
+        path: 'pageEditor',
+        name: 'pageEditor',
+        meta: {
+          icon: 'EditPen',
+          title: '富文本编辑器'
+        },
+        component: () => import('_v/components/editor/pageEditor.vue')
+      }
+    ]
+  },
+  {
+    path: '/directive',
+    name: 'directive',
+    meta: {
+      icon: 'SemiSelect',
+      title: '指令',
+      showAlways: true
+    },
+    component: Main,
+    children: [
+      {
+        path: 'fraggableDirective',
+        name: 'fraggableDirective',
+        meta: {
+          icon: 'Pointer',
+          title: '可拖拽指令'
+        },
+        component: () => import('_v/directive/fraggable.vue')
+      },
+      {
+        path: 'lazyloadDirective',
+        name: 'lazyloadDirective',
+        meta: {
+          icon: 'MagicStick',
+          title: '懒加载指令'
+        },
+        component: () => import('_v/directive/lazyLoad.vue')
       }
     ]
   },
@@ -182,8 +241,8 @@ export default [
     component: Main,
     children: [
       {
-        path: 'json',
-        name: 'json',
+        path: 'packagejson',
+        name: 'packagejson',
         meta: {
           icon: 'Tools',
           notCache: true,
