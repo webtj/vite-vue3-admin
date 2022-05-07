@@ -25,5 +25,21 @@ export default {
     directive: '自定义指令',
     fraggableDirective: '可拖拽指令',
     lazyloadDirective: '懒加载指令',
+    login: '登录',
+    vuedoc: 'vue3文档',
+    vuedocIframe: 'vue3文档-内嵌',
+    error_404: '页面不见了',
+    bad_error_404: '页面不见了'
+  },
+  navbar: {
+    fullscreen: '全屏',
+    exitFullscreen: '退出全屏',
+    refresh: '刷新窗口',
+    logout: '退出登录'
+  },
+  error: {
+    'default': '系统内部错误',
+    'exception': '请求异常，{status} {statusText}',
+    '400000001': '用户名或密码输入不正确'
   }
 }

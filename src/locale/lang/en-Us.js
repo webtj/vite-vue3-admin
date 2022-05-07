@@ -25,5 +25,21 @@ export default {
     directive: 'Custom Directive',
     fraggableDirective: 'Fraggable Directive',
     lazyloadDirective: 'LazyLoad Directive',
+    login: 'Log in',
+    vuedoc: 'Vue3Doc',
+    vuedocIframe: 'Vue3Doc Iframe',
+    error_404: '404',
+    bad_error_404: '404'
+  },
+  navbar: {
+    fullscreen: 'Fullscreen',
+    exitFullscreen: 'Exit Full Screen',
+    refresh: 'Refresh',
+    logout: 'Sign Out'
+  },
+  error: {
+    'default': 'Internal System Error',
+    'exception': 'request exception,{status} {statusText}',
+    '400000001': 'Incorrect username or password'
   }
 }
