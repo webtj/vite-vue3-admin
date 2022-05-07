@@ -35,6 +35,8 @@ export default {
     local: localRead('local'),
     activeRoutePath: '/home', //当前激活的菜单
     refreshKey: 0, //刷新键
+    showIframe: false, //是否显示iframe
+    iframeUrl: '', //iframe地址
   }),
   mutations: {
     setBreadCrumb(state, route) {
@@ -48,6 +50,12 @@ export default {
     },
     setRefreshKey(state) {
       state.refreshKey = new Date().getTime()
+    },
+    setShowIframe(state, show) {
+      state.showIframe = show
+    },
+    setIframeUrl(state, url) {
+      state.iframeUrl = url
     },
     setTagNavList(state, list) {
       let tagList = []

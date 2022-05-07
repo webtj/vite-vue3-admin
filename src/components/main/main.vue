@@ -16,6 +16,7 @@
           <fullscreen v-model="params.isFullScreen"></fullscreen>
           <refresh-main></refresh-main>
           <language></language>
+          <user></user>
         </header-bar>
       </el-header>
       <el-main class="main-content-con">
@@ -24,7 +25,8 @@
             <tags-nav :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag"></tags-nav>
           </div>
           <el-main class="content-wrapper">
-            <router-view v-slot="{ Component }">
+            <iframe v-if="showIframe" :src="iframeUrl" frameborder="0" width="100%" height="100%"></iframe>
+            <router-view v-slot="{ Component }" v-else>
               <Transition name="move" mode="out-in">
                 <keep-alive :include="cacheList">
                   <component :is="Component" :key="renderKey" />
@@ -42,7 +44,6 @@
 import { computed, onMounted, reactive, watch, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import { useI18n } from 'vue-i18n'
 import routers from '@/router/routers'
 import config from '@/config'
 import { routeEqual } from '@/libs/utils'
@@ -52,7 +53,7 @@ import maxLogo from '@/assets/images/logo/logo.jpg'
 import SideMenu from './components/side-menu'
 import HeaderBar from './components/header-bar'
 import TagsNav from './components/tags-nav'
-// import User from './components/user'
+import User from './components/user'
 // import ABackTop from './components/a-back-top'
 import Fullscreen from './components/fullscreen'
 import Language from './components/language'
@@ -65,6 +66,8 @@ const params = reactive({
 })
 
 let renderKey = computed(() => store.state.app['refreshKey'])
+let showIframe = computed(() => store.state.app['showIframe'])
+let iframeUrl = computed(() => store.state.app['iframeUrl'])
 
 const turnToPage = route => {
   let { name, params, query } = {}
@@ -114,6 +117,10 @@ watch(router.currentRoute, newRoute => {
   //同步更新面包屑
   store.commit('app/setBreadCrumb', newRoute)
   store.commit('app/setActiveRoutePath', newRoute.path)
+
+  //初始化iframe初始状态
+  // store.commit('app/setShowIframe', false)
+  // store.commit('app/setIframeUrl', '')
 })
 
 onMounted(() => {

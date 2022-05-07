@@ -1,3 +1,17 @@
+import Cookies from 'js-cookie'
+import config from '@/config'
+
+const { tokenKey, cookieExpires } = config
+export const setToken = (token) => {
+  Cookies.set(tokenKey, token, { expires: cookieExpires || 1 })
+}
+
+export const getToken = () => {
+  const token = Cookies.get(tokenKey)
+  if (token) return token
+  else return false
+}
+
 export const forEach = (arr, fn) => {
   if (!arr.length || !fn) return
   let i = -1
