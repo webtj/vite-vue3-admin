@@ -15,6 +15,5 @@ export default {
       })
     })
     observe.observe(el)
-    let { top } = el.getBoundingClientRect()
   }
 }

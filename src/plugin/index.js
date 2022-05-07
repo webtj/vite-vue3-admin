@@ -1,5 +1,6 @@
 /**element-plus 全部导入 */
 import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 /**vue router */
 import router from '@/router'
 /**vuex */
@@ -12,6 +13,8 @@ import JsonViewer from 'vue-json-viewer'
 import ExportTable from '_c/tables/export-table'
 
 const installPlugin = app => {
+  //全局注册翻译$t函数
+  app.config.globalProperties.$t = i18n.global.t
   app.use(ElementPlus).use(router).use(store).use(i18n).use(JsonViewer)
   app.component('exportTable', ExportTable)
 }

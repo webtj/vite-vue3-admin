@@ -1,6 +1,6 @@
 <template>
   <div class="imageList">
-    <el-alert title="F12控制台-网络-图片 查看资源加载情况" type="warning" show-icon></el-alert>
+    <el-alert title="v-lazyload指令" description="F12控制台-网络-图片 查看资源加载情况" type="warning" show-icon></el-alert><br>
     <div class="imgItem" v-for="item in imageList" :key="item">
       <img v-lazyload="item" alt="" class="item">
     </div>
