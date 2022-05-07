@@ -2,7 +2,6 @@
   <div class="switchLang">
     <el-dropdown @command="selectLang">
       <el-button type="text">{{ title }}
-        <e-icon type="ArrowDown"></e-icon>
       </el-button>
       <template #dropdown>
         <el-dropdown-menu>
@@ -44,6 +43,6 @@ const selectLang = name => {
 </script>
 <style lang="scss">
 .switchLang {
-  margin-left: 10px;
+  margin: 0 5px;
 }
 </style>
