@@ -5,6 +5,7 @@ import path from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { viteMockServe } from 'vite-plugin-mock'
 
 const resolve = dir => {
   return path.join(__dirname, dir)
@@ -38,13 +39,18 @@ export default defineConfig({
     // AutoImport({ //element组件按需加载
     //   resolvers: [ElementPlusResolver()],
     // }),
-    Components({
-      resolvers: [
-        //sass按需加载
-        ElementPlusResolver({
-          importStyle: "sass"
-        }),
-      ],
-    }),
+    // Components({
+    //   resolvers: [
+    //     //sass按需加载
+    //     ElementPlusResolver({
+    //       importStyle: "sass"
+    //     }),
+    //   ],
+    // }),
+    viteMockServe({
+      supportTs: false,
+      logger: false,
+      mockPath: "./src/mock/"  //你自己创建的mock文件夹路径
+    })
   ]
 })
