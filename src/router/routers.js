@@ -2,6 +2,15 @@ import parentView from '_c/parent-view'
 import Main from '_c/main'
 export default [
   {
+    path: '/login',
+    name: 'login',
+    meta: {
+      title: 'Login - 登录',
+      hideInMenu: true
+    },
+    component: () => import('_v/login/login.vue')
+  },
+  {
     path: '/',
     name: '_home',
     redirect: '/home',
@@ -22,6 +31,26 @@ export default [
         component: () => import('_v/home/home.vue')
       },
     ]
+  },
+  {
+    path: '/vuedoc',
+    name: 'vuedoc',
+    meta: {
+      title: 'vue文档',
+      icon: 'Notebook'
+    },
+    target: '_blank',
+    href: 'https://staging-cn.vuejs.org/guide/introduction.html'
+  },
+  {
+    path: '/vuedocIframe',
+    name: 'vuedocIframe',
+    meta: {
+      title: 'vue文档-内嵌',
+      icon: 'Notebook'
+    },
+    target: '_self',
+    href: 'https://staging-cn.vuejs.org/api/'
   },
   {
     path: '/components',
@@ -251,5 +280,29 @@ export default [
         component: () => import('_v/packageJson/packageJson.vue')
       }
     ]
+  },
+  {
+    path: '/401',
+    name: 'error_401',
+    meta: {
+      hideInMenu: true
+    },
+    component: () => import('_v/errorpage/401.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'error_404',
+    meta: {
+      hideInMenu: true
+    },
+    component: () => import('_v/errorpage/404.vue')
+  },
+  {
+    path: '/:pathMatch(.*)',
+    name: 'bad_error_404',
+    meta: {
+      hideInMenu: true
+    },
+    component: () => import('_v/errorpage/404.vue')
   }
 ]
