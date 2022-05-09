@@ -26,9 +26,11 @@ export default {
     fraggableDirective: 'Fraggable Directive',
     lazyloadDirective: 'LazyLoad Directive',
     login: 'Log in',
+    iframe: 'iframe',
     vuedoc: 'Vue3Doc',
     vuedocIframe: 'Vue3Doc Iframe',
     error_404: '404',
+    error_401: 'no access',
     bad_error_404: '404'
   },
   navbar: {

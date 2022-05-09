@@ -26,9 +26,11 @@ export default {
     fraggableDirective: '可拖拽指令',
     lazyloadDirective: '懒加载指令',
     login: '登录',
-    vuedoc: 'vue3文档',
+    iframe: '内嵌',
+    vuedoc: 'vue3文档-blank',
     vuedocIframe: 'vue3文档-内嵌',
     error_404: '页面不见了',
+    error_401: '无权限访问',
     bad_error_404: '页面不见了'
   },
   navbar: {

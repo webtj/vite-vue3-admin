@@ -1,5 +1,6 @@
 import parentView from '_c/parent-view'
 import Main from '_c/main'
+import EmptyComponent from '_c/empty'
 export default [
   {
     path: '/login',
@@ -36,21 +37,36 @@ export default [
     path: '/vuedoc',
     name: 'vuedoc',
     meta: {
+      access: ['superadmin'],
       title: 'vue文档',
-      icon: 'Notebook'
-    },
-    target: '_blank',
-    href: 'https://staging-cn.vuejs.org/guide/introduction.html'
+      icon: 'Notebook',
+      target: '_blank',
+      href: 'https://staging-cn.vuejs.org/guide/introduction.html'
+    }
   },
   {
-    path: '/vuedocIframe',
-    name: 'vuedocIframe',
+    path: '/iframe',
+    name: 'iframe',
+    component: Main,
     meta: {
-      title: 'vue文档-内嵌',
-      icon: 'Notebook'
+      icon: 'Monitor',
+      notCache: true
     },
-    target: '_self',
-    href: 'https://staging-cn.vuejs.org/api/'
+    children: [
+      {
+        path: 'vuedocIframe',
+        name: 'vuedocIframe',
+        meta: {
+          access: ['admin'],
+          title: 'vue文档-内嵌',
+          notCache: true,
+          icon: 'Notebook',
+          target: '_self',
+          href: 'https://staging-cn.vuejs.org/api/',
+        },
+        component: EmptyComponent
+      },
+    ]
   },
   {
     path: '/components',

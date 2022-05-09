@@ -30,7 +30,7 @@ router.beforeEach((to, from, next) => {
     else gotoLogin()
   } else {
     if (store.state.user.hasGetInfo) {
-      turnTo(to, store.state.user.userAccess, next)
+      turnTo(to, store.state.user.access, next)
     } else {
       store.dispatch('user/getUserInfo').then(user => {
         turnTo(to, user.access, next)

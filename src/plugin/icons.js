@@ -54,6 +54,7 @@ import {
   MultiPictureCarousel,
   Theme,
   Translate,
+  GithubOne
 } from '@icon-park/vue-next';
 import '@icon-park/vue-next/styles/index.css';
 // 所需的组件
@@ -107,6 +108,7 @@ export const parkComponents = [
   MultiPictureCarousel,
   Theme,
   Translate,
+  GithubOne
 ];
 
 const useIcons = app => {
