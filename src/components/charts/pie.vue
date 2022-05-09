@@ -55,8 +55,8 @@ const initOption = props => {
           radius: '55%',
           center: ['50%', '60%'],
           data: props.value,
-          itemStyle: {
-            emphasis: {
+          emphasis: {
+            itemStyle: {
               shadowBlur: 10,
               shadowOffsetX: 0,
               shadowColor: 'rgba(0, 0, 0, 0.5)'
@@ -72,5 +72,5 @@ const initOption = props => {
 //监听参数变化，销毁实例并重新初始化
 watch(props, newProps => chartInstance?.dispose() & initOption(newProps))
 onMounted(() => initOption(props)) & on(window, 'resize', chartResize)
-onBeforeUnmount(() => off(window, 'resize', chartResize)) 
+onBeforeUnmount(() => off(window, 'resize', chartResize))
 </script>
