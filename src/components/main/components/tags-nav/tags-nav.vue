@@ -5,14 +5,14 @@
         <e-icon type="CircleClose" class="closeTagHandle"></e-icon>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item command="close-others">{{t('router.closeOther')}}</el-dropdown-item>
-            <el-dropdown-item command="close-all">{{t('router.closeAll')}}</el-dropdown-item>
+            <el-dropdown-item command="close-others">{{ t('router.closeOther') }}</el-dropdown-item>
+            <el-dropdown-item command="close-all">{{ t('router.closeAll') }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
     </div>
-    <ul v-show="visible" :style="{left: contextMenuLeft + 'px', top: contextMenuTop + 'px'}" class="contextmenu">
-      <li v-for="(item, key) of menuList" @click="handleTagsOption(key)" :key="key">{{item}}</li>
+    <ul v-show="visible" :style="{ left: contextMenuLeft + 'px', top: contextMenuTop + 'px' }" class="contextmenu">
+      <li v-for="(item, key) of menuList" @click="handleTagsOption(key)" :key="key">{{ item }}</li>
     </ul>
     <div class="btn-con left-btn">
       <el-button type="text" @click="handleScroll(240)">
@@ -25,10 +25,10 @@
       </el-button>
     </div>
     <div class="scroll-outer" ref="scrollOuter">
-      <div ref="scrollBody" class="scroll-body" :style="{left: tagBodyLeft + 'px'}">
+      <div ref="scrollBody" class="scroll-body" :style="{ left: tagBodyLeft + 'px' }">
         <TransitionGroup name="tag-list">
           <el-tag v-for="(item, index) in list" ref="tagsPageOpened" :key="`tag-nav-${index}`" class="tag-nav"
-            :class="{active:isCurrentTag(item)}" :type="isCurrentTag(item) ? '' : 'info'" effect="plain"
+            :class="{ active: isCurrentTag(item) }" :type="isCurrentTag(item) ? '' : 'info'" effect="plain"
             :closable="isCloseable(item.name)" @click="handleClick(item)" @close="handleClose(item)"
             @contextmenu.prevent.native="contextMenu(item, $event)">
             <span class="tag-dot-inner"></span>
@@ -41,9 +41,6 @@
 </template>
 
 <script setup>
-import { computed, getCurrentInstance, nextTick, onMounted, reactive, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
-import { useI18n } from 'vue-i18n'
 import { showTitle, routeEqual } from '@/libs/utils'
 import beforeClose from '@/router/before-close'
 import config from '@/config'

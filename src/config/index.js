@@ -36,7 +36,8 @@
           ...
         }
     * tokenKey: 校验字段
-    * cookieExpires: 单位天 cookie失效时间，建议和后台保持一致，默认1天    
+    * cookieExpires: 单位天 cookie失效时间，建议和后台保持一致，默认1天   
+    * navbarBlackList：路由跳转时不需要添加到navbar缓存的路由name 
  */
 
 export default {
@@ -56,5 +57,6 @@ export default {
     msgKey: 'message'
   },
   tokenKey: 'token',
-  cookieExpires: 1
+  cookieExpires: 1,
+  navbarBlackList: ['login', 'error_401', 'error_404', 'bad_error_404']
 }

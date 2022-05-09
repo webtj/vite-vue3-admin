@@ -23,8 +23,8 @@
 
       .el-menu-item,
       .el-sub-menu {
-        margin: 0 5px;
-        padding-right: 0;
+        // margin: 0 5px;
+        // padding-right: 10px;
         border-radius: 5px;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -51,6 +51,18 @@
 
     .el-menu-sider:not(.el-menu--collapse) {
       width: $menu-aside-width;
+
+      .el-menu-item,
+      .el-sub-menu {
+        margin: 0 5px;
+        padding-right: 0px;
+      }
     }
+  }
+}
+
+.el-popper.is-light {
+  .el-menu--vertical {
+    margin-left: -6px;
   }
 }

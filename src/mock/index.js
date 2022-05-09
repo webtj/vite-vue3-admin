@@ -23,7 +23,7 @@ export default [
           id: '999999',
           name: 'taojian',
           avatar: 'https://i.gtimg.cn/club/item/face/img/8/15918_100.gif',
-          access: ['admin']
+          access: ['admin', 'superadmin']
         }
       }
     }

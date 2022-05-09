@@ -7,6 +7,12 @@
       </div>
     </template>
     <el-row :gutter="20" style="margin-top: 10px;">
+      <el-col :span="24" style="margin-bottom: 20px;">
+        <el-link type="primary" href="https://echarts.apache.org/zh/theme-builder.html#acc-theme-body" target="_blank">
+          自定义主题</el-link>&nbsp;
+        <el-link type="primary" href="https://echarts.apache.org/examples/zh/index.html" target="_blank">
+          官网示例</el-link>
+      </el-col>
       <el-col :md="24" :lg="8" style="margin-bottom: 20px;">
         <el-card shadow>
           <chart-pie :value="$data.pieData" text="pie饼状图组件"></chart-pie>
@@ -30,11 +36,11 @@ import { ChartPie, ChartBar, Chart } from '_c/charts'
 import { reactive } from 'vue';
 const $data = reactive({
   pieData: [
-    { value: 335, name: '直接访问' },
-    { value: 310, name: '邮件营销' },
-    { value: 234, name: '联盟广告' },
-    { value: 135, name: '视频广告' },
-    { value: 1548, name: '搜索引擎' }
+    { value: 335, name: '早晨起来' },
+    { value: 310, name: '拥抱太阳' },
+    { value: 234, name: '让身体充满' },
+    { value: 135, name: '灿烂的阳光' },
+    { value: 1548, name: '慢慢的正能量' }
   ],
   barData: {
     Mon: 13253,
@@ -46,6 +52,9 @@ const $data = reactive({
     Sun: 34523
   },
   commonuseData: {
+    title: {
+      text: '通用charts组件'
+    },
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -55,10 +64,17 @@ const $data = reactive({
         }
       }
     },
+    legend: {
+      data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {}
+      }
+    },
     grid: {
-      top: '3%',
-      left: '1.2%',
-      right: '1%',
+      left: '3%',
+      right: '4%',
       bottom: '3%',
       containLabel: true
     },
@@ -66,7 +82,7 @@ const $data = reactive({
       {
         type: 'category',
         boundaryGap: false,
-        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
       }
     ],
     yAxis: [
@@ -76,65 +92,58 @@ const $data = reactive({
     ],
     series: [
       {
-        name: '运营商/网络服务',
+        name: 'Email',
         type: 'line',
-        stack: '总量',
-        areaStyle: {
-          normal: {
-            color: '#2d8cf0'
-          }
+        stack: 'Total',
+        areaStyle: {},
+        emphasis: {
+          focus: 'series'
         },
         data: [120, 132, 101, 134, 90, 230, 210]
       },
       {
-        name: '银行/证券',
+        name: 'Union Ads',
         type: 'line',
-        stack: '总量',
-        areaStyle: {
-          normal: {
-            color: '#10A6FF'
-          }
+        stack: 'Total',
+        areaStyle: {},
+        emphasis: {
+          focus: 'series'
         },
-        data: [257, 358, 278, 234, 290, 330, 310]
+        data: [220, 182, 191, 234, 290, 330, 310]
       },
       {
-        name: '游戏/视频',
+        name: 'Video Ads',
         type: 'line',
-        stack: '总量',
-        areaStyle: {
-          normal: {
-            color: '#0C17A6'
-          }
+        stack: 'Total',
+        areaStyle: {},
+        emphasis: {
+          focus: 'series'
         },
-        data: [379, 268, 354, 269, 310, 478, 358]
+        data: [150, 232, 201, 154, 190, 330, 410]
       },
       {
-        name: '餐饮/外卖',
+        name: 'Direct',
         type: 'line',
-        stack: '总量',
-        areaStyle: {
-          normal: {
-            color: '#4608A6'
-          }
+        stack: 'Total',
+        areaStyle: {},
+        emphasis: {
+          focus: 'series'
         },
         data: [320, 332, 301, 334, 390, 330, 320]
       },
       {
-        name: '快递/电商',
+        name: 'Search Engine',
         type: 'line',
-        stack: '总量',
+        stack: 'Total',
         label: {
-          normal: {
-            show: true,
-            position: 'top'
-          }
+          show: true,
+          position: 'top'
         },
-        areaStyle: {
-          normal: {
-            color: '#398DBF'
-          }
+        areaStyle: {},
+        emphasis: {
+          focus: 'series'
         },
-        data: [820, 645, 546, 745, 872, 624, 258]
+        data: [820, 932, 901, 934, 1290, 1330, 1320]
       }
     ]
   }
@@ -142,9 +151,10 @@ const $data = reactive({
 
 const changedata = () => {
   $data.pieData = [
-    { value: 999, name: '你好' },
-    { value: 123, name: '你是谁' },
-    { value: 456, name: '哈哈哈' }
+    { value: 123, name: '嘴角向上' },
+    { value: 456, name: '蒸蒸日上' },
+    { value: 789, name: '嘴角向下' },
+    { value: 222, name: '会迷失方向' }
   ]
 
   $data.barData = {
@@ -159,15 +169,19 @@ const changedata = () => {
 
   $data.commonuseData.series = [
     {
-      name: 'good good',
+      name: 'Search Engine',
       type: 'line',
-      stack: 'papapa',
-      areaStyle: {
-        normal: {
-          color: '#2d8cf0'
-        }
+      stack: 'Total',
+      label: {
+        show: true,
+        position: 'top'
       },
-      data: [0, 132, 101, 70, 101, 132, 0]
-    }]
+      areaStyle: {},
+      emphasis: {
+        focus: 'series'
+      },
+      data: [820, 932, 901, 934, 1290, 1330, 1320]
+    }
+  ]
 }
 </script>

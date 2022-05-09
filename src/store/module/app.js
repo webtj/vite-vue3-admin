@@ -9,6 +9,7 @@ import {
   getTagNavListFromLocalstorage,
   routeEqual,
   routeHasExist,
+  needToAddToBar,
   getHomeRoute,
   getNextRoute,
 } from '@/libs/utils'
@@ -78,7 +79,7 @@ export default {
       closePage(state, route)
     },
     addTag(state, { route, type = 'unshift' }) {
-      if (!routeHasExist(state.tagNavList, route)) {
+      if (!routeHasExist(state.tagNavList, route) && needToAddToBar(route)) {
         if (type === 'push') state.tagNavList.push(route)
         else {
           if (route.name === homeName) state.tagNavList.unshift(route)

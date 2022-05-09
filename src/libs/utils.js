@@ -1,7 +1,7 @@
 import { forEach, objEqual } from '@/libs'
 import i18n from '../locale'
 import config from '@/config'
-const { title } = config
+const { title, navbarBlackList } = config
 const { global } = i18n
 
 export const hasChild = (item) => {
@@ -72,9 +72,7 @@ export const getMenuByRouter = (list, access) => {
           title: (subItem.meta && subItem.meta.title) || subItem.name || (item.meta && item.meta.title) || item.name,
           path: `${item.path}/${subItem.path}`,
           name: subItem.name,
-          meta: subItem.meta || {},
-          target: subItem.target || '',
-          href: subItem.href || '',
+          meta: subItem.meta || {}
         }
         if (subItem.meta && subItem.meta.href) obj.href = subItem.meta.href
         if (showThisMenuEle(subItem, access)) res.push(obj)
@@ -84,9 +82,7 @@ export const getMenuByRouter = (list, access) => {
           title: (item.meta && item.meta.title) || item.name,
           path: item.path || '',
           name: item.name,
-          meta: item.meta || {},
-          target: item.target || '',
-          href: item.href || '',
+          meta: item.meta || {}
         }
         if (hasChild(item) && showThisMenuEle(item, access)) {
           obj.children = getMenuByRouter(item.children, access)
@@ -223,10 +219,25 @@ export const routeHasExist = (tagNavList, routeItem) => {
 }
 
 /**
+ * 判断标签是否需要在navbar打开，例如router.push login/error_page等不需要
+ * @param {*} route 
+ */
+export const needToAddToBar = route => {
+  return navbarBlackList.indexOf(route.name) == -1
+}
+
+/**
  * @param {路由实例} routeItem 
  */
 export const setTitle = routeItem => {
   const pageTitle = showTitle(routeItem)
   const resTitle = pageTitle ? `${title} ${pageTitle}` : title
   window.document.title = resTitle
+}
+
+
+export const addNewRoute = (router, item, parent) => {
+  const newRoute = { ...item }
+  if (!parent) router.addRoute(newRoute)
+  else router.addRoute(parent, newRoute)
 }

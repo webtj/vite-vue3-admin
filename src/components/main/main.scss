@@ -13,7 +13,7 @@
       box-sizing: border-box;
 
       img {
-        height: 45px;
+        max-height: 45px;
         width: auto;
         display: block;
       }
@@ -51,6 +51,11 @@
         height: calc(100% - 80px);
         overflow: auto;
         @include base-scrollbar;
+
+        .iframeContent {
+          width: 100%;
+          height: 100%;
+        }
 
         .move-enter-active,
         .move-leave-active {

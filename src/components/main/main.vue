@@ -25,7 +25,9 @@
             <tags-nav :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag"></tags-nav>
           </div>
           <el-main class="content-wrapper">
-            <iframe v-if="showIframe" :src="iframeUrl" frameborder="0" width="100%" height="100%"></iframe>
+            <div class="iframeContent" v-if="showIframe" v-loading="iframeLoading">
+              <iframe ref="mainIframe" :src="iframeUrl" frameborder="0" width="100%" height="100%"></iframe>
+            </div>
             <router-view v-slot="{ Component }" v-else>
               <Transition name="move" mode="out-in">
                 <keep-alive :include="cacheList">
@@ -41,15 +43,12 @@
 </template>
 
 <script setup>
-import { computed, onMounted, reactive, watch, ref } from 'vue'
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
 import routers from '@/router/routers'
 import config from '@/config'
 import { routeEqual } from '@/libs/utils'
 import { getNavigatorLang } from '@/libs'
-import minLogo from '@/assets/images/logo/logo-min.jpg'
-import maxLogo from '@/assets/images/logo/logo.jpg'
+import minLogo from '@/assets/images/logo/logo-mini.svg'
+import maxLogo from '@/assets/images/logo/logo.svg'
 import SideMenu from './components/side-menu'
 import HeaderBar from './components/header-bar'
 import TagsNav from './components/tags-nav'
@@ -64,6 +63,9 @@ const params = reactive({
   collapsed: false,
   isFullScreen: true
 })
+
+let iframeLoading = ref(false)
+let mainIframe = ref(null)
 
 let renderKey = computed(() => store.state.app['refreshKey'])
 let showIframe = computed(() => store.state.app['showIframe'])
@@ -106,6 +108,27 @@ const handleCloseTag = (remainList, type, route) => {
   store.commit('app/setTagNavList', remainList)
 }
 
+const initIframeRoute = (currentRoute) => {
+  iframeLoading.value = false
+  store.commit('app/setShowIframe', false)
+  store.commit('app/setIframeUrl', '')
+  if (currentRoute.meta && currentRoute.meta.target == '_self' && currentRoute.meta.href) {
+    store.commit('app/setShowIframe', true)
+    store.commit('app/setIframeUrl', currentRoute.meta.href)
+    nextTick(() => {
+      iframeLoading.value = true
+      let iframe = mainIframe.value
+      if (iframe.attachEvent) {
+        iframe.attachEvent("onload", () => {
+          iframeLoading.value = false
+        })
+      } else {
+        iframe.onload = () => iframeLoading.value = false
+      }
+    })
+  }
+}
+
 //监听当前路由变化，对tagNavList进行操作
 watch(router.currentRoute, newRoute => {
   const { name, query, params, meta } = newRoute
@@ -119,8 +142,7 @@ watch(router.currentRoute, newRoute => {
   store.commit('app/setActiveRoutePath', newRoute.path)
 
   //初始化iframe初始状态
-  // store.commit('app/setShowIframe', false)
-  // store.commit('app/setIframeUrl', '')
+  initIframeRoute(newRoute)
 })
 
 onMounted(() => {
@@ -142,6 +164,9 @@ onMounted(() => {
   store.commit('app/setLocal', getNavigatorLang())
   //初始化菜单，使刚进入页面左侧菜单自动打开
   store.commit('app/setActiveRoutePath', router.currentRoute.value.path)
+
+  //判断当前是否是iframe,iframe需要打开iframe隐藏route-view
+  initIframeRoute(router.currentRoute.value)
 })
 </script>
 

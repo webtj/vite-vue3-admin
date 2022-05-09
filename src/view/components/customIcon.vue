@@ -43,9 +43,11 @@
     </el-card>
 
     <el-card shadow="hover" class="subcard">
-      <template #header> 第三方图标库<a href="https://iconpark.oceanengine.com/official" target="_blank">iconpark</a>
-        &lt;p-icon&gt;&nbsp;<a href="https://www.npmjs.com/package/@icon-park/vue-next"
-          target="_blank">更多配置</a></template>
+      <template #header> 第三方图标库&lt;p-icon&gt;&nbsp;
+        <el-link type="primary" href="https://iconpark.oceanengine.com/official" target="_blank">iconpark</el-link>
+        &nbsp;
+        <el-link type="primary" href="https://www.npmjs.com/package/@icon-park/vue-next" target="_blank">更多配置</el-link>
+      </template>
       <el-card class="sub">
         <el-alert title="iconpark字节跳动图标，@icon-park/vue-next" type="error">
         </el-alert>

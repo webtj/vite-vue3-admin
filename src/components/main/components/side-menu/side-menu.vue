@@ -19,13 +19,13 @@
                   </template>
                   <el-menu-item v-for="(threeItem, i) in sub.children" :key="i"
                     :index="`${item.path}/${sub.path}/${threeItem.path}`"
-                    @click.native="gotoPage(threeItem.name, threeItem)">
+                    @click.native="gotoPage(`${item.path}/${sub.path}/${threeItem.path}`, threeItem)">
                     <e-icon :type="threeItem.icon" v-if="threeItem.icon"></e-icon>
                     <template #title>{{ showTitle(threeItem) }}</template>
                   </el-menu-item>
                 </el-sub-menu>
                 <el-menu-item v-else :index="`${item.path}/${sub.path}`" :key="sub.name"
-                  @click.native="gotoPage(sub.name, sub)">
+                  @click.native="gotoPage(`${item.path}/${sub.path}`, sub)">
                   <e-icon :type="sub.icon" v-if="sub.icon"></e-icon>
                   <template #title>{{ showTitle(sub) }}</template>
                 </el-menu-item>
@@ -33,7 +33,7 @@
             </el-sub-menu>
           </template>
           <template v-else>
-            <el-menu-item :index="item.path" :key="item.name" @click.native="gotoPage(`${item.name}`, item)">
+            <el-menu-item :index="item.path" :key="item.name" @click.native="gotoPage(item.path, item)">
               <e-icon :type="item.icon" v-if="item.icon"></e-icon>
               <template #title>{{ showTitle(item) }}</template>
             </el-menu-item>
@@ -45,9 +45,6 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
 import { showTitle } from '@/libs/utils'
 import Main from '_c/main'
 import EmptyComponent from '_c/empty'
@@ -74,17 +71,17 @@ defineProps({
   }
 })
 
-const gotoPage = (name, item) => {
+const gotoPage = (path, item) => {
   store.commit('app/setShowIframe', false)
   store.commit('app/setIframeUrl', '')
-  if (item.target == '_blank' && item.href) {
-    window.open(item.href, '_blank');
-  } else if (item.target == '_self' && item.href) {
+  if (item.meta && item.meta.target == '_blank' && item.meta.href) {
+    window.open(item.href, '_blank')
+    return
+  } else if (item.meta && item.meta.target == '_self' && item.meta.href) {
     store.commit('app/setShowIframe', true)
     store.commit('app/setIframeUrl', item.href)
-  } else {
-    router.push({ name })
   }
+  router.push({ path })
 }
 </script>
 
