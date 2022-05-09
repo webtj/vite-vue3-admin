@@ -169,7 +169,6 @@
 </template>
 
 <script setup>
-import { onMounted, reactive, ref } from 'vue'
 import CountTo from '_c/count-to'
 const end = ref(0)
 const unit = reactive([[3, '千多'], [4, '万多'], [5, '十多万']])
@@ -188,22 +187,27 @@ onMounted(() => init())
 
 <style lang="scss">
 $baseColor: #67c23a;
+
 .countto-page-el-row {
   height: 200px;
 }
+
 .count-to-con {
   display: block;
   // height: 100%;
   text-align: center;
   overflow: auto;
 }
+
 .count-text {
   font-size: 30px;
   color: $baseColor;
 }
+
 .slot-text {
   font-size: 20px;
 }
+
 .unit-class {
   font-size: 30px;
   color: $baseColor;
