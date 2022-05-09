@@ -1,8 +1,8 @@
 <template>
-  <div class="404-area">
-    111
-  </div>
+  <error-content code="404" desc="Oh~~您的页面好像飞走了~" :src="error404" />
 </template>
-<script setup>
 
+<script setup>
+import error404 from '@/assets/images/error-page/error-404.svg'
+import errorContent from './error-content.vue'
 </script>
