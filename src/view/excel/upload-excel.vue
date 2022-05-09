@@ -39,8 +39,6 @@
 </template>
 <script setup>
 import excel from '@/libs/excel'
-import { ElMessage } from 'element-plus'
-import { reactive, ref } from 'vue'
 let uploadLoading = ref(false)
 let progressPercent = ref(0)
 let showProgress = ref(false)

@@ -9,10 +9,8 @@
 </template>
 
 <script setup>
-import { useStore } from 'vuex'
 import siderTrigger from './sider-trigger'
 import customBreadCrumb from './custom-bread-crumb'
-import { computed } from 'vue'
 defineProps({
   collapsed: Boolean
 })

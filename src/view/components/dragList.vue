@@ -54,7 +54,6 @@
   </div>
 </template>
 <script setup>
-import { onMounted, reactive } from 'vue'
 import DragList from '_c/drag-list'
 let showList = reactive({
   leftList: [],
@@ -110,16 +109,20 @@ onMounted(() => {
 <style lang="scss">
 .dragListCon {
   margin-top: 20px;
+
   .el-card__body {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     flex: 1;
+
     .drag-box-card {
       width: 600px;
       height: 560px;
+
       h3 {
         padding: 10px 15px;
       }
+
       .drop-box {
         border: 1px solid #eeeeee;
         height: 455px;
@@ -135,17 +138,21 @@ onMounted(() => {
     .handle-log-box {
       margin-left: 20px;
       width: 300px;
+
       h3 {
         padding: 10px 14px;
       }
+
       .handle-inner-box {
         border: 1px solid #eeeeee;
         height: 455px;
         border-radius: 5px;
         overflow: auto;
+
         pre {
           padding: 20px;
         }
+
         p {
           padding: 14px 0;
           margin: 0 14px;

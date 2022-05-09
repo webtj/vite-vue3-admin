@@ -17,7 +17,6 @@ export default {
   </el-table>
 </template>
 <script setup>
-import { getCurrentInstance, onMounted } from 'vue'
 import FileSaver from 'file-saver'
 import { utils, write, writeFile } from 'xlsx'
 let $el = null

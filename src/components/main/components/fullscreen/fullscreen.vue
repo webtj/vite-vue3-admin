@@ -1,6 +1,6 @@
 <template>
   <div v-if="showFullScreenBtn" class="full-screen-btn-con">
-    <el-tooltip effect="dark" :content="modelValue ?$t('navbar.exitFullscreen') : $t('navbar.fullscreen')"
+    <el-tooltip effect="dark" :content="modelValue ? $t('navbar.exitFullscreen') : $t('navbar.fullscreen')"
       placement="bottom">
       <e-icon type='FullScreen' :size="20" @click.native="handleFullscreen"></e-icon>
     </el-tooltip>
@@ -8,7 +8,6 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from "vue";
 const emit = defineEmits(['update:modelValue'])
 //踩了点坑，为了父组件使用v-model语法糖，默认props名称只能为modelValue！！！！！
 //要是定义其他名称的props newName,父组件 v-model:newName

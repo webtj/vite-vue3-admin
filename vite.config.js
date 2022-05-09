@@ -36,17 +36,18 @@ export default defineConfig({
     vueI18n({ //Three-shaking https://vue-i18n.intlify.dev/guide/advanced/optimization.html#vite 
       include: path.resolve(__dirname, './locale/**')
     }),
-    // AutoImport({ //element组件按需加载
-    //   resolvers: [ElementPlusResolver()],
-    // }),
-    // Components({
-    //   resolvers: [
-    //     //sass按需加载
-    //     ElementPlusResolver({
-    //       importStyle: "sass"
-    //     }),
-    //   ],
-    // }),
+    AutoImport({ //element组件按需加载
+      imports: ['vue', 'vue-i18n', 'vue-router', 'vuex'],
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [
+        //sass按需加载
+        ElementPlusResolver({
+          importStyle: "sass"
+        }),
+      ],
+    }),
     viteMockServe({
       supportTs: false,
       logger: false,

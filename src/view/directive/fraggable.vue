@@ -9,7 +9,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 const buttonOptions = ref({
   trigger: '.draggable-btn',
   body: '.draggable-btn'

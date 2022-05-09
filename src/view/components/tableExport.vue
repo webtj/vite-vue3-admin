@@ -23,7 +23,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
 const reportTable = ref(null)
 const exportData = () => reportTable.value.exportData('文件的名称')
 

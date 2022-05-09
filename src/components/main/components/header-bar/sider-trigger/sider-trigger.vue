@@ -4,8 +4,6 @@
   </a>
 </template>
 <script setup>
-import { computed } from 'vue'
-
 const props = defineProps({
   collapsed: Boolean,
   size: {

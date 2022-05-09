@@ -7,18 +7,15 @@
       &nbsp;<e-icon type="ArrowDown"></e-icon>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item :icon="UserFilled">{{userName}}</el-dropdown-item>
+          <el-dropdown-item :icon="UserFilled">{{ userName }}</el-dropdown-item>
           <el-dropdown-item command="github">Github</el-dropdown-item>
-          <el-dropdown-item command="logout">{{$t('navbar.logout')}}</el-dropdown-item>
+          <el-dropdown-item command="logout">{{ $t('navbar.logout') }}</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
   </div>
 </template>
 <script setup>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
 import config from '@/config'
 import { UserFilled } from '@element-plus/icons-vue'
 import Avatar from './avatar'
@@ -42,6 +39,7 @@ const handleClick = command => {
 <style lang="scss">
 .user-area {
   margin-left: 10px;
+
   .el-dropdown {
     cursor: pointer;
   }

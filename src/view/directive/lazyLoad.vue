@@ -7,7 +7,6 @@
   </div>
 </template>
 <script setup>
-import { reactive } from "vue";
 const imageList = reactive([])
 //vite处理静态资源有点坑啊 
 // https://cn.vitejs.dev/guide/assets.html#the-public-directory
