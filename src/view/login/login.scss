@@ -1,0 +1,76 @@
+.login {
+  width: 100%;
+  height: 100%;
+  min-width: 1200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+
+  &-top-left {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 16px;
+
+    a {
+      display: inline-block;
+      padding: 10px;
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  &-introduce {
+    position: absolute;
+    left: 160px;
+    top: 40%;
+    transform: translateY(-60%);
+
+    h1 {
+      font-size: 72px;
+      margin-bottom: 15px;
+      letter-spacing: -2px;
+    }
+  }
+
+  &-con {
+    position: absolute;
+    right: 160px;
+    top: 50%;
+    transform: translateY(-60%);
+    width: 300px;
+
+    .el-card.loginCard {
+      border: 1px solid #{$meun-aside-hover-bg-color};
+      background: transparent;
+      color: white;
+
+      .el-card__header {
+        padding: 15px 20px;
+        border-bottom: 1px solid #{$meun-aside-hover-bg-color};
+      }
+
+      .el-card__body {
+        padding: 10px 20px;
+
+        .loginBtn {
+          width: 100%;
+          margin-top: 10px;
+          background-color: transparent;
+          border: 1px solid #{$meun-aside-hover-bg-color};
+          color: #fff;
+          letter-spacing: 1.5px;
+
+          &:hover {
+            background-color: #{$meun-aside-hover-bg-color};
+          }
+        }
+      }
+    }
+
+    .form-con {
+      padding: 10px 0 0;
+    }
+  }
+}
