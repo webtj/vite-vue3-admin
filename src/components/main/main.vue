@@ -43,6 +43,9 @@
 </template>
 
 <script setup>
+import { computed, onMounted, reactive, watch, ref, nextTick } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 import routers from '@/router/routers'
 import config from '@/config'
 import { routeEqual } from '@/libs/utils'

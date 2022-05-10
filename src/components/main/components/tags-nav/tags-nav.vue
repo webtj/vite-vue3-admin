@@ -41,6 +41,9 @@
 </template>
 
 <script setup>
+import { computed, getCurrentInstance, nextTick, onMounted, reactive, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { showTitle, routeEqual } from '@/libs/utils'
 import beforeClose from '@/router/before-close'
 import config from '@/config'

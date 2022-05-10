@@ -16,6 +16,9 @@
   </div>
 </template>
 <script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 import config from '@/config'
 import { UserFilled } from '@element-plus/icons-vue'
 import Avatar from './avatar'

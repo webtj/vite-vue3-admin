@@ -25,7 +25,10 @@
 </template>
 
 <script setup>
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import BIRDS from 'vanta/src/vanta.birds'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 import config from '@/config'
 import LoginForm from '_c/login-form'
 

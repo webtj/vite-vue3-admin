@@ -25,6 +25,7 @@
 </template>
 <script setup>
 import excel from '@/libs/excel'
+import { ref } from 'vue'
 const exportLoading = ref(false)
 const tableTitle = [{
   title: '日期',
@@ -85,7 +86,6 @@ const exportExcel = () => {
 
 .jsonBody {
   margin: 10px 0;
-
   .el-card .el-card__body {
     height: 450px;
     overflow: auto;

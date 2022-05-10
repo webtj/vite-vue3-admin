@@ -6,6 +6,8 @@
 </template>
 
 <script setup>
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import config from '@/config'
 const { homeName } = config
 let second = ref(5)

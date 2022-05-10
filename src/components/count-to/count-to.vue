@@ -11,6 +11,7 @@
 
 <script setup>
 import CountUp from 'countup'
+import { computed, onMounted, reactive, watch, ref } from 'vue'
 const props = defineProps({
   init: {
     type: Number,

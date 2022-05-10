@@ -14,6 +14,9 @@
 </template>
 
 <script setup>
+import { computed, reactive } from "vue"
+import { useI18n } from 'vue-i18n'
+import { useStore } from 'vuex'
 const store = useStore()
 const { locale } = useI18n()
 const langList = reactive({

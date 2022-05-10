@@ -4,6 +4,7 @@
 
 <script setup>
 import '@/assets/icons/iconfont.css'
+import { computed } from 'vue'
 const props = defineProps({
   type: {
     type: String,

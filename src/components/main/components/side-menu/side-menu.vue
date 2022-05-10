@@ -45,6 +45,9 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 import { showTitle } from '@/libs/utils'
 import Main from '_c/main'
 import EmptyComponent from '_c/empty'

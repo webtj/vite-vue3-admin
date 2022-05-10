@@ -1,9 +1,11 @@
 <template>
-  <a @click="handleChange" type="text" class="sider-trigger-a">
+  <a @click="handleChange" class="sider-trigger-a">
     <e-icon :type="icon" :size="size"></e-icon>
   </a>
 </template>
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({
   collapsed: Boolean,
   size: {

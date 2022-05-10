@@ -27,6 +27,7 @@
   </div>
 </template>
 <script setup>
+import { reactive } from 'vue'
 import draggable from 'vuedraggable'
 const emit = defineEmits(['on-change', 'update:modelValue'])
 const props = defineProps({

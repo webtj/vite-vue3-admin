@@ -6,6 +6,7 @@
   </div>
 </template>
 <script setup>
+import { useStore } from 'vuex'
 const store = useStore()
 const handleRefresh = () => {
   store.commit('app/setRefreshKey')

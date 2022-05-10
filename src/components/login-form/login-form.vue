@@ -20,6 +20,7 @@
   </el-form>
 </template>
 <script setup>
+import { reactive, ref } from 'vue'
 const emit = defineEmits(['on-success-valid'])
 const loginForm = ref(null)
 const form = reactive({
