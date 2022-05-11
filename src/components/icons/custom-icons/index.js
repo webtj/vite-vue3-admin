@@ -1,2 +1,2 @@
-import customIcon from './icons.vue'
+import customIcon from './custom-icons.vue'
 export default customIcon

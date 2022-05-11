@@ -1,6 +1,3 @@
-/**element-plus 全部导入 */
-// import ElementPlus from 'element-plus'
-// import 'element-plus/dist/index.css'
 /**vue router */
 import router from '@/router'
 /**vuex */

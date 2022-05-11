@@ -1,2 +1,2 @@
-import ElementIcon from './icons.vue'
+import ElementIcon from './element-icons.vue'
 export default ElementIcon
