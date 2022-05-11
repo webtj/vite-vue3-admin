@@ -4,7 +4,6 @@
 
 <script setup>
 import * as echarts from 'echarts';
-import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import tdTheme from './theme.json'
 import { on, off } from '@/libs'
 echarts.registerTheme('tdTheme', tdTheme)

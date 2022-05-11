@@ -15,12 +15,12 @@
       <li v-for="(item, key) of menuList" @click="handleTagsOption(key)" :key="key">{{ item }}</li>
     </ul>
     <div class="btn-con left-btn">
-      <el-button type="text" @click="handleScroll(240)">
+      <el-button text type="primary" @click="handleScroll(240)">
         <e-icon type="ArrowLeft" size="18"></e-icon>
       </el-button>
     </div>
     <div class="btn-con right-btn">
-      <el-button type="text" @click="handleScroll(-240)">
+      <el-button text type="primary" @click="handleScroll(-240)">
         <e-icon type="ArrowRight" size="18"></e-icon>
       </el-button>
     </div>

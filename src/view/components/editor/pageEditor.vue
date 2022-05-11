@@ -12,7 +12,6 @@
 </template>
 
 <script setup >
-import { ref, onMounted } from 'vue';
 import WangEditor from 'wangeditor';
 const editor = ref(null);
 const domRef = ref(null);
@@ -35,6 +34,7 @@ onMounted(() => {
   background: inherit !important;
   border-color: #999 !important;
 }
+
 :deep(.w-e-text-container) {
   background: inherit;
   border-color: #999 !important;

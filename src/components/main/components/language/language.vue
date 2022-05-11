@@ -1,8 +1,7 @@
 <template>
   <div class="switchLang">
     <el-dropdown @command="selectLang">
-      <el-button type="text">{{ title }}
-      </el-button>
+      <el-button text type="primary">{{ title }}</el-button>
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item :command="key" v-for="(value, key) in localList" :key="`lang-${key}`">

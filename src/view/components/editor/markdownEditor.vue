@@ -30,4 +30,5 @@ function renderVditor() {
 
 onMounted(() => renderVditor())
 </script>
-<style scoped></style>
+<style scoped>
+</style>
