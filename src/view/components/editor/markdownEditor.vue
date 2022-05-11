@@ -9,7 +9,7 @@
 
 <script setup >
 import Vditor from 'vditor';
-import 'vditor/src/assets/scss/index.scss';
+import 'vditor/dist/index.css';
 
 const vditor = ref(null);
 const domRef = ref(null);
@@ -23,7 +23,7 @@ function renderVditor() {
     minHeight: 400,
     theme: 'classic',
     icon: 'material',
-    cache: { enable: false }
+    cache: { enable: false },
   });
 }
 
