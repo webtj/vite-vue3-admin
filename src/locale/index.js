@@ -11,6 +11,7 @@ import localeEN from 'element-plus/lib/locale/lang/en'
 //获取浏览器当前语言环境
 let locale = getNavigatorLang()
 const i18n = createI18n({
+  legacy: false,
   locale,
   messages: {
     'zh-CN': Object.assign(customZhCn, localeZH),

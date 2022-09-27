@@ -1,9 +1,9 @@
-const initUrl = url => `/api-dev${url}`
+const initUrl = url => `/vue-admin${url}`
 
 export default [
   {
     type: 'post',
-    url: initUrl('/login'),
+    url: initUrl('/user/login'),
     response: () => {
       return {
         code: 0,
@@ -14,7 +14,7 @@ export default [
   },
   {
     type: 'post',
-    url: initUrl('/getUserInfo'),
+    url: initUrl('/user/getUserInfo'),
     response: () => {
       return {
         code: 0,
@@ -30,7 +30,7 @@ export default [
   },
   {
     type: 'post',
-    url: initUrl('/logout'),
+    url: initUrl('/user/logout'),
     response: () => {
       return {
         code: 0,

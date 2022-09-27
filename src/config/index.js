@@ -46,8 +46,8 @@ export default {
   loginName: 'login',
   title: '',
   baseUrl: {
-    dev: '/api-dev',
-    pro: '/api'
+    dev: '/vue-admin',
+    pro: '/vue-admin'
   },
   responseMap: {
     code: {

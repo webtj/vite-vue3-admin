@@ -18,6 +18,7 @@ const vueI18nBundler = isPro ? 'vue-i18n/dist/vue-i18n.runtime.esm-bundler.js' :
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: isPro ? '/admin/' : './',
   resolve: {
     alias: {
       '@': resolve('src'),
@@ -69,5 +70,13 @@ export default defineConfig({
       logger: false,
       mockPath: "./src/mock/"  //你自己创建的mock文件夹路径
     })
-  ]
+  ],
+  // server: {
+  //   proxy: {
+  //     '/vue-admin': {
+  //       target: 'http://124.222.43.123',
+  //       changeOrigin: true,
+  //     }
+  //   }
+  // }
 })
