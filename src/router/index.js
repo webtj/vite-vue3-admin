@@ -11,7 +11,7 @@ import routes from './routers'
 
 let router = createRouter({
   routes,
-  history: createWebHistory()
+  history: createWebHistory('/admin')
 })
 
 const { loginName } = config
